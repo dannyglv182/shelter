@@ -11,6 +11,7 @@ CREATE DATABASE shelter;
 CREATE TABLE food (
 	food_id SERIAL PRIMARY KEY,
 	name varchar(50),
+	wet boolean,
 	stock int
 );
 
@@ -18,7 +19,7 @@ CREATE TABLE food (
 CREATE TABLE dog (
 	dog_id SERIAL PRIMARY KEY,
 	name text NOT NULL,
-	arrival_date timestamp,
+	arrival_date timestamp NOT NULL,
 	adopted boolean,
 	food_id int references food(food_id)
 );
