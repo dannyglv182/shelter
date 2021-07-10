@@ -47,3 +47,10 @@ CREATE TABLE city (
 	city varchar(50),
 	state varchar(3)
 );
+
+
+CREATE TABLE adopter_dog (
+	adopter_id int references adopter (adopter_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	dog_id int references dog (dog_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT adopter_dog_pkey PRIMARY KEY (adopter_id, dog_id)
+);

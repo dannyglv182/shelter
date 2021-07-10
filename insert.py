@@ -5,7 +5,7 @@ from helpers import get_date
 
 
 def add_dog(name):
-    """Add a new dog to the shelter."""
+    """Add a new dog to the dog table."""
     today = get_date()
 
     # Add the new dog to the database
@@ -17,6 +17,7 @@ def add_dog(name):
 
 
 def add_food(name, wet):
+    """Add a new food to the food table."""
     if wet == "2":
         wet = "true"
     else:
@@ -25,5 +26,13 @@ def add_food(name, wet):
     conn = connect()
     cur = conn.cursor()
     cur.execute("INSERT into food (name, wet) VALUES (%s, %s)", (name, wet))
+    conn.commit()
+    conn.close()
+
+
+def add_adopter(first_name, last_name, email):
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("INSERT into adopter (first_name, last_name, email) VALUES (%s, %s, %s)", (first_name, last_name, email))
     conn.commit()
     conn.close()
