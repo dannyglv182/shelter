@@ -1,4 +1,4 @@
-from insert import add_dog, add_food, add_adopter
+from insert import add_dog, add_food, add_adopter, add_adoption
 
 
 run_program = 1
@@ -6,6 +6,7 @@ run_program = 1
 while run_program != 0:
     print "Press 1 to add a dog.\nPress 2 to add a food."
     print "Press 3 to add a new adopter.\nPress 0 to quit."
+    print "Press 4 to add a new adoption record."
     choice = input()
     
     if choice == 1:
@@ -22,6 +23,10 @@ while run_program != 0:
         last_name = raw_input("What is the last name of the new adopter?\n")
         email = raw_input("What is the adopter's email?\n")
         add_adopter(first_name, last_name, email)
+
+    elif choice == 4:
+        add_adoption(1,1)
+
 
     elif choice == 0:
         run_program = 0

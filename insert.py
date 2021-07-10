@@ -36,3 +36,15 @@ def add_adopter(first_name, last_name, email):
     cur.execute("INSERT into adopter (first_name, last_name, email) VALUES (%s, %s, %s)", (first_name, last_name, email))
     conn.commit()
     conn.close()
+
+
+def add_adoption(adopter_id, dog_id):
+    """ Add a new adoption record """
+    today = get_date()
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("INSERT INTO adopter_dog (adopter_id, dog_id, adoption_date) VALUES (%s, %s, %s)", (adopter_id, dog_id, today))
+    conn.commit()
+    conn.close()
+
+

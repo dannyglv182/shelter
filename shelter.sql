@@ -52,5 +52,6 @@ CREATE TABLE city (
 CREATE TABLE adopter_dog (
 	adopter_id int references adopter (adopter_id) ON UPDATE CASCADE ON DELETE CASCADE,
 	dog_id int references dog (dog_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	adoption_date timestamp NOT NULL,
 	CONSTRAINT adopter_dog_pkey PRIMARY KEY (adopter_id, dog_id)
 );
