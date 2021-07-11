@@ -48,3 +48,14 @@ def add_adoption(adopter_id, dog_id):
     conn.close()
 
 
+def query_adopter(email):
+    """ Query adopter by email and return adopter_id """
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM adopter WHERE email = %s", (email,))
+    result = cur.fetchone()
+    return result[0]
+    conn.commit()
+    conn.close()
+
+

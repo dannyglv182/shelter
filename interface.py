@@ -1,4 +1,4 @@
-from insert import add_dog, add_food, add_adopter, add_adoption
+from insert import add_dog, add_food, add_adopter, add_adoption, query_adopter
 
 
 run_program = 1
@@ -25,7 +25,9 @@ while run_program != 0:
         add_adopter(first_name, last_name, email)
 
     elif choice == 4:
-        add_adoption(1,1)
+        email = raw_input("What is the adopter's email?\n")
+        query_adopter(email)
+        # add_adoption(1,1)
 
 
     elif choice == 0:

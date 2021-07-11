@@ -37,7 +37,7 @@ CREATE TABLE adopter (
 	adopter_id SERIAL PRIMARY KEY,
 	first_name varchar(50),
 	last_name varchar(50),
-	email varchar(50),
+	email varchar(50) UNIQUE,
 	address_id int references address(address_id)
 );
 
