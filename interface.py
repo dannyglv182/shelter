@@ -1,5 +1,5 @@
 from insert import add_dog, add_food, add_adopter, add_adoption, query_adopter
-
+from insert import query_dog
 
 run_program = 1
 
@@ -26,8 +26,13 @@ while run_program != 0:
 
     elif choice == 4:
         email = raw_input("What is the adopter's email?\n")
-        query_adopter(email)
-        # add_adoption(1,1)
+        name = raw_input("What is the name of the dog?\n")
+        adopter_id = query_adopter(email)
+        dog_id = query_dog(name)
+        if adopter_id == None or dog_id == None:
+            print "User/dog does not exist."
+        else:
+            add_adoption(adopter_id,dog_id)
 
 
     elif choice == 0:

@@ -18,7 +18,7 @@ CREATE TABLE food (
 
 CREATE TABLE dog (
 	dog_id SERIAL PRIMARY KEY,
-	name text NOT NULL,
+	name text NOT NULL UNIQUE,
 	arrival_date timestamp NOT NULL,
 	adopted boolean,
 	food_id int references food(food_id)

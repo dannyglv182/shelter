@@ -54,8 +54,24 @@ def query_adopter(email):
     cur = conn.cursor()
     cur.execute("SELECT * FROM adopter WHERE email = %s", (email,))
     result = cur.fetchone()
-    return result[0]
+    if result:
+        return result[0]
+    else:
+        return None
     conn.commit()
     conn.close()
 
+
+def query_dog(name):
+    """ Query dog by name and return dog_id """
+    conn = connect()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM dog WHERE name = %s", (name,))
+    result = cur.fetchone()
+    if result:
+        return result[0]
+    else:
+        return None
+    conn.commit()
+    conn.close()
 
